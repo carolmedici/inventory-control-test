@@ -1,7 +1,10 @@
 package com.company.inventory.backend.domain.persistence.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Getter
@@ -22,4 +25,8 @@ public class RawMaterial {
 
     @Column
     private Integer stockQuantity;
+
+    @OneToMany(mappedBy = "rawMaterial")
+    @JsonIgnore
+    private List<ProductComposition> composition;
 }

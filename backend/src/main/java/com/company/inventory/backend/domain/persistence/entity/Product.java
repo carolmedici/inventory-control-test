@@ -3,6 +3,9 @@ package com.company.inventory.backend.domain.persistence.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigDecimal;
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -21,8 +24,9 @@ public class Product {
     private String name;
 
     @Column
-    private String price;
+    private BigDecimal price;
 
-    
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ProductComposition> compositions;
 
 }
