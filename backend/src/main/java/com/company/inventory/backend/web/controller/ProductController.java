@@ -36,7 +36,7 @@ public class ProductController {
 
     @PutMapping("/{id}")
     public Product update(@PathVariable("id") Long id, @RequestBody @Validated ProductDTO body){
-        return this.service.upadate(id, body);
+        return this.service.update(id, body);
     }
 
     @DeleteMapping("/{id}")

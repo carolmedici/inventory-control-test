@@ -21,7 +21,7 @@ public class ProductService {
     }
 
     @Transactional
-    public Product upadate(Long id, ProductDTO product){
+    public Product update(Long id, ProductDTO product){
         final Product entity = repository.findById(id).orElseThrow(() -> new NotFoundException(id));
 
         if(product.getCode() !=null){
