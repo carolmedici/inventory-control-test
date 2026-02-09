@@ -1,8 +1,10 @@
 package com.company.inventory.backend.web.controller;
 
+import com.company.inventory.backend.core.exceptions.NotFoundException;
 import com.company.inventory.backend.domain.persistence.entity.Product;
 import com.company.inventory.backend.domain.persistence.repository.ProductRepository;
 import com.company.inventory.backend.domain.persistence.service.ProductService;
+import com.company.inventory.backend.web.dto.ProductDTO;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,12 +30,12 @@ public class ProductController {
     }
 
     @PostMapping
-    public  Product create(@RequestBody Product product){
-        return repository.save(product);
+    public  Product create(@RequestBody @Validated ProductDTO product){
+        return this.service.create(product);
     }
 
     @PutMapping("/{id}")
-    public Product update(@PathVariable("id") Long id, @RequestBody Product body){
+    public Product update(@PathVariable("id") Long id, @RequestBody @Validated ProductDTO body){
         return this.service.upadate(id, body);
     }
 
@@ -42,6 +44,11 @@ public class ProductController {
         this.service.delete(id);
     }
 
+    @GetMapping("/{id}")
+    public Product findById(@PathVariable Long id) {
+        return repository.findById(id)
+                .orElseThrow(() -> new NotFoundException(id));
+    }
 
 
 }
