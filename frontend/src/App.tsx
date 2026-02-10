@@ -7,6 +7,7 @@ import RawMaterialRegistration from "./raw-materials/RawMaterialRegistration";
 import RawMaterialList from "./raw-materials/RawMaterialList";
 import ProductComposition from "./compositions/ProductComposition";
 import Home from "./home/Home";
+import ProductSuggestions from "./product-suggestions/ProductSugestions";
 
 const App = () => {
   return ( 
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/raw-materials" element={<RawMaterialList/>}/>
         <Route path="/raw-materials/new" element={<RawMaterialRegistration/>} />
         <Route path="/raw-materials/:id/edit" element={<RawMaterialRegistration/>}/>
+        <Route path="/product-suggestions" element={< ProductSuggestions/>} />
       </Routes>
     </BrowserRouter> 
   );

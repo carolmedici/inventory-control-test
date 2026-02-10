@@ -55,7 +55,7 @@ const Home = () => {
 
           {/* Suggested Products */}
           <button
-            onClick={() => navigate("/products")}
+            onClick={() => navigate("/product-suggestions")}
             className="bg-white rounded-xl shadow hover:shadow-lg transition p-8 text-left group cursor-pointer"
           >
             <div className="flex items-center gap-4 mb-4">
