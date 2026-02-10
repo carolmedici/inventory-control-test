@@ -10,7 +10,12 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name = "PRODUCT_COMPOSITION")
+@Table(
+        name = "PRODUCT_COMPOSITION",
+        uniqueConstraints = {
+                @UniqueConstraint(columnNames = {"product_id", "raw_material_id"})
+        }
+)
 public class ProductComposition {
 
     @Id

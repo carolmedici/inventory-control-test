@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import FormCard from '../shared/FormCard';
-import { Pencil, Trash2 } from 'lucide-react';
+import { Pencil, Plus, Trash2 } from 'lucide-react';
 import ConfirmModal from '../shared/ConfirmModal';
 import { useNavigate } from 'react-router-dom';
 import type { RawMaterial } from './rawMaterial.types';
@@ -42,7 +42,18 @@ const RawMaterialList = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 py-10">
-       <FormCard title="Raw Materials" className="w-full max-w-6xl">
+      <FormCard
+          title="Raw Materials"
+          className="w-full max-w-6xl"
+          rightAction={
+            <button
+              onClick={() => navigate("/raw-materials/new")}
+              className="flex items-center gap-2 bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition cursor-pointer" >
+              <Plus size={18} />
+              Add Raw Material
+            </button>
+          }
+        >
         {loading ? (
           <p>Loading...</p>
         ) : (

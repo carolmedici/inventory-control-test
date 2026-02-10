@@ -151,7 +151,7 @@ const RawMaterialRegistration = () => {
               ? 'Saving...'
               : isEditMode
               ? 'Update Raw Material'
-              : 'Save Raw Material'}
+              : 'Save'}
           </button>
         </form>
       </FormCard>
