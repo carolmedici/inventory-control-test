@@ -12,7 +12,8 @@ public class SecurityConfig implements WebMvcConfigurer {
         registry.addMapping("/**")
                 .allowedOrigins(
                         "http://localhost:5173",
-                        "https://inventory-frontend.vercel.app"
+                        "https://inventory-frontend.vercel.app",
+                        "https://inventory-control-teal.vercel.app"
                 )
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
